@@ -56,8 +56,11 @@ class Bird:
         self.img = self.imgs[(+5, 0)]
         self.rct = self.img.get_rect()
         self.rct.center = xy
+        """
+        演習２を実装としたやつ
         self.dire=(+5,0)
-
+        branchの使い方が分かってない
+        """
     def change_img(self, num: int, screen: pg.Surface):
         """
         こうかとん画像を切り替え，画面に転送する
@@ -150,7 +153,7 @@ class Score:
         self.rct.centery = 50
 
     def update(self):
-        
+
         
 
 def main():
