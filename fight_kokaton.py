@@ -56,6 +56,7 @@ class Bird:
         self.img = self.imgs[(+5, 0)]
         self.rct = self.img.get_rect()
         self.rct.center = xy
+        self.dire=(+5,0)
 
     def change_img(self, num: int, screen: pg.Surface):
         """
@@ -93,7 +94,7 @@ class Beam:
         """
         self.img = pg.image.load(f"ex03/fig/beam.png")
         self.rct = self.img.get_rect()
-        self.rct.left = bird.rct.right  # こうかとんの右横座標
+        self.rct.left = bird.rct.center  # こうかとんの右横座標
         self.rct.centery = bird.rct.centery  # こうかとんの中心縦座標
         self.vx, self.vy = +5, 0
 
@@ -140,6 +141,17 @@ class Bomb:
         self.rct.move_ip(self.vx, self.vy)
         screen.blit(self.img, self.rct)
 
+class Score:
+    def __init__(self,ten=0):
+        self.font = pg.font.SysFont("hgp創英角ﾎﾟｯﾌﾟ体", 30)
+        self.img = self.font.render(f"スコア：{ten}",0,(0,0,255))
+        self.rct = self.img.get_rect()
+        self.rct.centerx = 100
+        self.rct.centery = 50
+
+    def update(self):
+        
+        
 
 def main():
     pg.display.set_caption("たたかえ！こうかとん")
